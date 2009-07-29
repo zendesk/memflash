@@ -34,7 +34,7 @@ the original key and pseudo-random key in the flash. Conceptually, when you writ
       # write :error, "some message" to the flash, as usual
     end
 
-On the flip side, reading from the flash, `@`flash[:error]`@` is conceptually equivalent to:
+On the flip side, reading from the flash, `flash[:error]` is conceptually equivalent to:
 
     if the value for :error stored in the flash is a memflash key
       # read the original (large) value from Rails.cache
