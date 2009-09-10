@@ -17,8 +17,6 @@ module Zendesk
         
         if value.kind_of?(String) && value.length >= Zendesk::Memflash.threshold
           value_for_hash = memflash_key(key)
-          
-          log("MEMFLASH: Storing original message (#{value.length} characters) under key '#{value_for_hash}' in Rails.cache, and storing '#{value_for_hash}' in flash[:#{key}].")
           Rails.cache.write(value_for_hash, value)
         end
         
@@ -27,13 +25,7 @@ module Zendesk
       
       define_method "[]_with_caching" do |key|
         value_in_hash = send("[]_without_caching", key)
-        
-        if memflashed?(key, value_in_hash)
-          log("MEMFLASH: flash[:#{key}] has been memflashed -- reading #{value_in_hash} from Rails.cache.")
-          Rails.cache.read(value_in_hash)
-        else
-          value_in_hash
-        end
+        memflashed?(key, value_in_hash) ? Rails.cache.read(value_in_hash) : value_in_hash
       end
       
     private
@@ -43,10 +35,6 @@ module Zendesk
       
       def memflashed?(key, value)
         !!(value =~ /^Memflash-#{key}/)
-      end
-      
-      def log(message)
-        Rails.logger.info(message)
       end
     end # InstanceMethods
   end # Memflash
