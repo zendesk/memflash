@@ -1,9 +1,8 @@
 require "test_helper"
-require "zendesk/memflash"
 
 class MemflashTest < Test::Unit::TestCase
   class EnhancedHash < Hash
-    include Zendesk::Memflash
+    include Memflash
   end
   
   def setup
@@ -22,18 +21,18 @@ class MemflashTest < Test::Unit::TestCase
   
   context "In a memflash-enhanced Hash, storing a value" do
     context "that is a String" do
-      context "shorter than Zendesk::Memflash.threshold" do
+      context "shorter than Memflash.threshold" do
         should "not affect the cache" do
           Rails.cache.expects(:write).never
           
-          @hash[:hello] = "a" * (Zendesk::Memflash.threshold - 1)
+          @hash[:hello] = "a" * (Memflash.threshold - 1)
         end # not affect the cache
-      end # shorter than Zendesk::Memflash.threshold
+      end # shorter than Memflash.threshold
       
-      context "at least as long as Zendesk::Memflash.threshold" do
+      context "at least as long as Memflash.threshold" do
         setup do
           @key = "a-sample-key"
-          @value = "a" * (Zendesk::Memflash.threshold)
+          @value = "a" * (Memflash.threshold)
         end
         
         should "call memflash_key with the key" do
@@ -62,7 +61,7 @@ class MemflashTest < Test::Unit::TestCase
           
           assert_equal "a-memflash-key", @hash[@key]
         end # store the memflash_key in place of the original value
-      end # at least as long as Zendesk::Memflash.threshold
+      end # at least as long as Memflash.threshold
     end # that is a String
     
     context "that is not a String" do
@@ -112,7 +111,7 @@ class MemflashTest < Test::Unit::TestCase
   
   context "ActionController::Flash::FlashHash" do
     should "be automatically cache-enhanced" do
-      assert ActionController::Flash::FlashHash.ancestors.include?(Zendesk::Memflash)
+      assert ActionController::Flash::FlashHash.ancestors.include?(Memflash)
     end
   end # ActionController::Flash::FlashHash
 end

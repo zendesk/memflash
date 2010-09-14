@@ -15,18 +15,18 @@ with caching-enabled reads and writes.
 By default, any message that is over 300 characters long, will be saved in Rails.cache,
 and a pointer to it stored in the flash. You can change this anywhere in your app by:
 
-    Zendesk::Memflash.threshold = #{length-at-which-writing-to-the-cache-is-trigerred}
+    Memflash.threshold = #{length-at-which-writing-to-the-cache-is-trigerred}
 
 How does it work?
 =================
 
 Memflash ties into the [] and []= methods of Rails's FlashHash. On writes, if the value
-being written has a length over Zendesk::Memflash.threshold, Memflash generates a pseudo-random
+being written has a length over Memflash.threshold, Memflash generates a pseudo-random
 key for it, writes the pseudo-random key and original value to `Rails.cache`, and stores
 the original key and pseudo-random key in the flash. Conceptually, when you write
 `flash[:error] = "some message"`, this is equivalent to:
 
-    if "some message".length >=  Zendesk::Memflash.threshold
+    if "some message".length >=  Memflash.threshold
       # generate a psedudo-random key, memflash_key
       # write memflash_key, "some message" to Rails.cache
       # write :error, memflash_key to the flash

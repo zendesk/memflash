@@ -3,3 +3,4 @@ require File.expand_path(File.join(File.dirname(__FILE__), "rails", "config", "e
 
 require 'rubygems'
 require 'active_support/test_case'
+require "memflash"
