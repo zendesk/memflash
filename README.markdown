@@ -1,7 +1,7 @@
 Memflash
 ========
 
-Memflash is a plugin which enables storing really long values in the Rails FlashHash
+Memflash is a gem which enables storing really long values in the Rails FlashHash
 without writing them to the session. Instead, it transparently uses `Rails.cache`, thus
 enabling the flash in your actions to contain large values, and still fit in a cookie-based
 session store.
@@ -9,7 +9,7 @@ session store.
 How do I use it?
 ================
 
-Memflash is completely transparent -- installing the plugin automatically enhances FlashHash
+Memflash is completely transparent -- requiring the gem automatically enhances FlashHash
 with caching-enabled reads and writes.
 
 By default, any message that is over 300 characters long, will be saved in Rails.cache,
@@ -50,4 +50,4 @@ We'd love to hear from you!
 
 Authored by [Vladimir Andrijevik](mailto:vladimir@zendesk.com)
 
-Copyright (c) 2009 Zendesk, released under the MIT license
+Copyright (c) 2010 Zendesk, released under the MIT license

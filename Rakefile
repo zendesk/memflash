@@ -1,23 +1,32 @@
+require 'rubygems'
 require 'rake'
+
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    gem.name = "memflash"
+    gem.summary = "Memflash is a gem which enables storing really long values in the Rails FlashHash without writing them to the session"
+    gem.description = "Memflash is a gem which enables storing really long values in the Rails FlashHash without writing them to the session. Instead, it transparently uses `Rails.cache`, thus enabling the flash in your actions to contain large values, and still fit in a cookie-based session store"
+    gem.email = "vladimir@zendesk.com"
+    gem.homepage = "http://github.com/zendesk/memflash"
+    gem.authors = ["Vladimir Andrijevik"]
+    gem.version = "1.0.0"
+    gem.add_dependency "actionpack", "~> 2.3.5"
+    gem.add_development_dependency "rails", "~> 2.3.5"
+    gem.add_development_dependency "shoulda", "~> 2.11.0"
+    
+    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+  end
+  Jeweler::GemcutterTasks.new
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+end
+
 require 'rake/testtask'
-require 'rake/rdoctask'
+Rake::TestTask.new(:test) do |test|
+  test.libs << 'lib' << 'test'
+  test.pattern = 'test/**/*_test.rb'
+  test.verbose = true
+end
 
-desc 'Default: run unit tests.'
 task :default => :test
-
-desc 'Test the memflash plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
-end
-
-desc 'Generate documentation for the memflash plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'Memflash'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
