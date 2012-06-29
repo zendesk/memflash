@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.join(File.dirname(__FILE__), "rails", "config", "environment"))
 
-require 'rubygems'
-require 'active_support/test_case'
+ENV["EMACS"] = "t" # show colors in test-unit < 2.4.9
+require "rubygems"
+require "active_support/test_case"
 require "memflash"
