@@ -38,6 +38,11 @@ module Memflash
   end # InstanceMethods
 end # Memflash
 
-require 'action_pack'
-require 'action_controller'
-ActionController::Flash::FlashHash.class_eval { include Memflash }
+require 'action_pack/version'
+if ActionPack::VERSION::MAJOR >= 3
+  require 'action_dispatch'
+  ActionDispatch::Flash::FlashHash.class_eval { include Memflash }
+else
+  require 'action_controller'
+  ActionController::Flash::FlashHash.class_eval { include Memflash }
+end
