@@ -1,25 +1,26 @@
 require "test_helper"
 
 class MemflashTest < Test::Unit::TestCase
-  class EnhancedHash < Hash
-    include Memflash
-  end
-  
   def setup
-    @hash = EnhancedHash.new
+    base = if ActionPack::VERSION::MAJOR >= 3
+      ActionDispatch::Flash::FlashHash
+    else
+      ActionController::Flash::FlashHash
+    end
+    @hash = base.new
   end
   
-  context "A memflash-enhanced Hash" do
+  context "Flash::FlashHash" do
     should "have a caching-enabled []" do
       assert @hash.respond_to?("[]_with_caching")
     end
-    
+
     should "have a caching-enabled []=" do
       assert @hash.respond_to?("[]_with_caching=")
     end
   end
-  
-  context "In a memflash-enhanced Hash, storing a value" do
+
+  context "storing a value" do
     context "that is a String" do
       context "shorter than Memflash.threshold" do
         should "not affect the cache" do
@@ -73,7 +74,7 @@ class MemflashTest < Test::Unit::TestCase
     end
   end
 
-  context "From a memflash-enhanced Hash, reading by a key" do
+  context "reading a key" do
     should "check whether the value in the hash was memflashed" do
       @hash[:hello] = "world"
       
@@ -105,17 +106,6 @@ class MemflashTest < Test::Unit::TestCase
         Rails.cache.expects(:read).never
         @hash["a-non-memflashed-key"]
       end
-    end
-  end
-
-  context "Flash::FlashHash" do
-    should "be automatically cache-enhanced" do
-      base = if ActionPack::VERSION::MAJOR >= 3
-        ActionDispatch::Flash::FlashHash
-      else
-        ActionController::Flash::FlashHash
-      end
-      assert base.ancestors.include?(Memflash)
     end
   end
 end
