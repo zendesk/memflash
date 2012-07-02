@@ -1,5 +1,7 @@
 module Memflash
-  mattr_accessor :threshold
+  class << self
+    attr_accessor :threshold
+  end
   self.threshold = 300 # Messages longer than this will be stored in Rails.cache
 
   module CachingLayer
