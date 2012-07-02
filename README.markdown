@@ -43,6 +43,10 @@ On the flip side, reading from the flash, `flash[:error]` is conceptually equiva
       # return the value stored in the flash, as usual
     end
 
+TODO
+====
+ - replace jeweler with bundler
+
 Anything else?
 ==============
 
