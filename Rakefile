@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'rake'
+require 'appraisal'
 
 begin
   require 'jeweler'
@@ -11,10 +12,8 @@ begin
     gem.homepage = "http://github.com/zendesk/memflash"
     gem.authors = ["Vladimir Andrijevik"]
     gem.version = "1.0.0"
-    gem.add_dependency "actionpack", "~> 2.3.5"
-    gem.add_development_dependency "rails", "~> 2.3.5"
-    gem.add_development_dependency "shoulda", "~> 2.11.0"
-    
+    gem.add_dependency "actionpack", ">= 2.3.6", "< 3.3"
+
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
