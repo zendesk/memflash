@@ -20,11 +20,6 @@ GEM
     appraisal (0.4.1)
       bundler
       rake
-    git (1.2.5)
-    jeweler (1.6.4)
-      bundler (~> 1.0)
-      git (>= 1.2.5)
-      rake
     metaclass (0.0.1)
     mocha (0.11.4)
       metaclass (~> 0.0.1)
@@ -45,7 +40,6 @@ PLATFORMS
 
 DEPENDENCIES
   appraisal
-  jeweler
   memflash!
   mocha
   rails
