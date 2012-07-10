@@ -49,3 +49,5 @@ Author
 Authored by [Vladimir Andrijevik](mailto:vladimir@zendesk.com)
 
 Copyright (c) 2010 Zendesk, released under the MIT license
+
+[![Build Status](https://secure.travis-ci.org/zendesk/memflash.png)](http://travis-ci.org/zendesk/memflash)
