@@ -3,11 +3,10 @@
 source :rubygems
 
 gem "rake"
-gem "test-unit", "2.2.0"
-gem "mocha"
+gem "test-unit", ">=2.5.1"
+gem "mocha", "~>0.11.0"
 gem "appraisal"
 gem "shoulda"
-gem "jeweler"
 gem "rails", "~> 2.3.14"
 gem "actionpack", "~> 2.3.14"
 
