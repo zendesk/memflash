@@ -48,6 +48,6 @@ Author
 
 Authored by [Vladimir Andrijevik](mailto:vladimir@zendesk.com)
 
-Copyright (c) 2010 Zendesk, released under the MIT license
+Copyright (c) 2010 Zendesk, released under the Apache License Version 2.0
 
 [![Build Status](https://secure.travis-ci.org/zendesk/memflash.png)](http://travis-ci.org/zendesk/memflash)

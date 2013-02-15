@@ -2,12 +2,7 @@
 
 source :rubygems
 
-gem "rake"
-gem "test-unit", ">=2.5.1"
-gem "mocha", "~>0.11.0"
-gem "appraisal"
-gem "shoulda"
-gem "rails", "~> 3.2.6"
-gem "actionpack", "~> 3.2.6"
+gem "rails", "~> 3.2.12"
+gem "actionpack", "~> 3.2.12"
 
 gemspec :path=>"../"

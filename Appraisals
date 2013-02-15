@@ -1,6 +1,6 @@
 appraise "rails-2.3" do
-  gem "rails", "~> 2.3.14"
-  gem "actionpack", "~> 2.3.14"
+  gem "rails", "~> 2.3.17"
+  gem "actionpack", "~> 2.3.17"
 end
 
 appraise "rails-3.0" do
@@ -9,7 +9,7 @@ appraise "rails-3.0" do
 end
 
 appraise "rails-3.2" do
-  gem "rails", "~> 3.2.6"
-  gem "actionpack", "~> 3.2.6"
+  gem "rails", "~> 3.2.12"
+  gem "actionpack", "~> 3.2.12"
 end
 
