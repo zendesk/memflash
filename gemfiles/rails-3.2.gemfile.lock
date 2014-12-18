@@ -1,7 +1,7 @@
 PATH
-  remote: /Users/primdahl/Git/memflash
+  remote: ../
   specs:
-    memflash (1.0.1)
+    memflash (2.0.0)
       actionpack (>= 2.3.6, < 3.3)
 
 GEM
