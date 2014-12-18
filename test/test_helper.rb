@@ -1,6 +1,7 @@
-require "active_support/test_case"
-require "mocha"
-require "shoulda"
+require "bundler/setup"
+require "minitest/autorun"
+require "minitest/rg"
+require "mocha/setup"
 require "memflash"
 
 module Rails
