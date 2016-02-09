@@ -1,10 +1,11 @@
 script: "bundle exec rake test"
 bundler_args: ""
 rvm:
-  - 1.9.3
   - 2.0.0
-  - 2.1.5
+  - 2.1.8
+  - 2.2.4
+  - 2.3.0
 gemfile:
-  - gemfiles/rails-3.2.gemfile
-  - gemfiles/rails-4.0.gemfile
-  - gemfiles/rails-4.1.gemfile
+  - gemfiles/rails3.2.gemfile
+  - gemfiles/rails4.0.gemfile
+  - gemfiles/rails4.1.gemfile
