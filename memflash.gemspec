@@ -6,7 +6,9 @@ Gem::Specification.new "memflash", "2.1.0" do |s|
   s.authors = ["Vladimir Andrijevik"]
   s.files = `git ls-files lib README.md LICENSE`.split("\n")
   s.license = "Apache License Version 2.0"
-  s.add_dependency "actionpack", ">= 3.2.15", "< 5.1"
+
+  s.required_ruby_version = '>= 2.5'
+  s.add_dependency "actionpack", ">= 4.2.11", "< 5.1"
 
   s.add_development_dependency('rake')
   s.add_development_dependency('minitest')
