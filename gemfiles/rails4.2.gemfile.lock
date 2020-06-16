@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    memflash (2.1.0)
+    memflash (2.2.0)
       actionpack (>= 4.2.11, < 5.1)
 
 GEM
