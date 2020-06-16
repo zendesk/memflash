@@ -10,16 +10,6 @@ describe Memflash do
     @hash = base.new
   end
 
-  describe "Flash::FlashHash" do
-    it "have a caching-enabled []" do
-      assert @hash.respond_to?("[]_with_caching")
-    end
-
-    it "have a caching-enabled []=" do
-      assert @hash.respond_to?("[]_with_caching=")
-    end
-  end
-
   describe "storing a value" do
     describe "that is a String" do
       describe "shorter than Memflash.threshold" do
