@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    memflash (2.2.0)
+    memflash (2.2.1)
       actionpack (>= 4.2.11, < 5.1)
 
 GEM
@@ -32,7 +32,7 @@ GEM
     erubis (2.7.0)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
-    loofah (2.5.0)
+    loofah (2.6.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     metaclass (0.0.4)
