@@ -20,6 +20,14 @@ describe Memflash do
         end
       end
 
+      describe "shorter than Memflash.threshold" do
+        it "not affect the cache" do
+          @hash[:hello] = true
+
+          assert_equal true, @hash[:hello]
+        end
+      end
+
       describe "at least as long as Memflash.threshold" do
         before do
           @key = "a-sample-key"
