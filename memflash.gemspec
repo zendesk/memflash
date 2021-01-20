@@ -13,7 +13,7 @@ Gem::Specification.new "memflash", "2.2.1" do |s|
   s.add_development_dependency('rake')
   s.add_development_dependency('minitest')
   s.add_development_dependency('minitest-rg')
-  s.add_development_dependency('wwtd')
+  s.add_development_dependency('matching_bundle')
   s.add_development_dependency('bump')
   s.add_development_dependency('mocha')
 end

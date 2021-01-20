@@ -1,0 +1,35 @@
+name: repo-checks
+on:
+  push:
+    branches:
+      - '**' # run on push to any branch, but not pushes to tags
+  pull_request:
+jobs:
+  main:
+    name: test
+    runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+      BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+    continue-on-error: ${{ matrix.allow_failures }}
+    strategy:
+      fail-fast: false
+      matrix:
+        rvm:
+          - 2.5
+          - 2.6
+          - 2.7
+        gemfile:
+          - gemfiles/rails4.2.gemfile
+          - gemfiles/rails5.0.gemfile
+        allow_failures:
+          - false
+    steps:
+    - uses: zendesk/checkout@v2
+    - uses: zendesk/setup-ruby@v1
+      with:
+        bundler-cache: true
+        ruby-version: ${{ matrix.rvm }}
+    - name: test ${{ matrix.rvm }} with ${{ matrix.gemfile }}
+      run: |
+        bundle exec rake test

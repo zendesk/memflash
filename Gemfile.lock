@@ -36,18 +36,19 @@ GEM
     loofah (2.8.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    matching_bundle (0.3.4)
     metaclass (0.0.4)
+    mini_portile2 (2.4.0)
     minitest (5.14.1)
     minitest-rg (5.1.0)
       minitest (~> 5.0)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
-    nokogiri (1.11.1-x86_64-darwin)
-      racc (~> 1.4)
-    racc (1.5.2)
+    nokogiri (1.10.9)
+      mini_portile2 (~> 2.4.0)
     rack (2.2.3)
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -55,9 +56,8 @@ GEM
       loofah (~> 2.3)
     rake (10.4.2)
     thread_safe (0.3.6)
-    tzinfo (1.2.9)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    wwtd (0.5.5)
     zeitwerk (2.3.0)
 
 PLATFORMS
@@ -65,12 +65,12 @@ PLATFORMS
 
 DEPENDENCIES
   bump
+  matching_bundle
   memflash!
   minitest
   minitest-rg
   mocha
   rake
-  wwtd
 
 BUNDLED WITH
    1.17.3
