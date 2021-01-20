@@ -1,4 +1,4 @@
-name: repo-checks
+name: test
 on:
   push:
     branches:
