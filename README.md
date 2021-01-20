@@ -1,4 +1,5 @@
 ## Memflash [![Build Status](https://secure.travis-ci.org/zendesk/memflash.png)](http://travis-ci.org/zendesk/memflash)
+[![Build Status](https://github.com/zendesk/memflash/workflows/test/badge.svg)](https://github.com/zendesk/memflash/actions)
 
 Memflash is a gem which enables storing really long values in the Rails FlashHash
 without writing them to the session. Instead, it transparently uses `Rails.cache`, thus
