@@ -2,7 +2,7 @@ PATH
   remote: ..
   specs:
     memflash (2.2.1)
-      actionpack (>= 4.2.11, < 5.1)
+      actionpack (>= 4.2.11, < 6.2)
 
 GEM
   remote: https://rubygems.org/
