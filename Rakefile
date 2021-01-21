@@ -22,7 +22,7 @@ end
 desc "Bundle all gemfiles"
 task :bundle_all, [:bundler_args] do |task, args|
   Bundler.with_original_env do
-    sh "BUNDLE_GEMFILE=Gemfile matching_bundle"
+    sh "BUNDLE_GEMFILE=Gemfile matching_bundle #{args[:bundler_args]}"
     Dir["gemfiles/*.gemfile"].each do |gemfile|
       sh "BUNDLE_GEMFILE=#{gemfile} matching_bundle #{args[:bundler_args]}"
     end
