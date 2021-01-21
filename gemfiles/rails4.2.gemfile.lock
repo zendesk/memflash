@@ -27,25 +27,24 @@ GEM
       tzinfo (~> 1.1)
     bigdecimal (1.3.5)
     builder (3.2.4)
-    bump (0.5.3)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.8)
     crass (1.0.6)
     erubis (2.7.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
-    loofah (2.5.0)
+    loofah (2.9.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     matching_bundle (0.3.4)
-    metaclass (0.0.4)
-    mini_portile2 (2.4.0)
-    minitest (5.14.1)
+    mini_portile2 (2.5.0)
+    minitest (5.14.3)
     minitest-rg (5.2.0)
       minitest (~> 5.0)
-    mocha (1.1.0)
-      metaclass (~> 0.0.1)
-    nokogiri (1.10.9)
-      mini_portile2 (~> 2.4.0)
+    mocha (1.12.0)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
+    racc (1.5.2)
     rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -57,9 +56,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
-    rake (10.5.0)
+    rake (13.0.3)
     thread_safe (0.3.6)
-    tzinfo (1.2.7)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
 
 PLATFORMS
@@ -68,7 +67,6 @@ PLATFORMS
 DEPENDENCIES
   actionpack (~> 4.2)
   bigdecimal (= 1.3.5)
-  bump
   matching_bundle
   memflash!
   minitest
@@ -77,4 +75,4 @@ DEPENDENCIES
   rake
 
 BUNDLED WITH
-   1.17.3
+   2.1.4

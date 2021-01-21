@@ -27,7 +27,6 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     builder (3.2.4)
-    bump (0.5.1)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     erubi (1.10.0)
@@ -39,7 +38,7 @@ GEM
     matching_bundle (0.3.4)
     metaclass (0.0.4)
     mini_portile2 (2.5.0)
-    minitest (5.14.1)
+    minitest (5.14.3)
     minitest-rg (5.1.0)
       minitest (~> 5.0)
     mocha (1.1.0)
@@ -65,7 +64,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bump
   matching_bundle
   memflash!
   minitest
@@ -74,4 +72,4 @@ DEPENDENCIES
   rake
 
 BUNDLED WITH
-   1.17.3
+   2.1.4

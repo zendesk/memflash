@@ -1,6 +1,5 @@
 require 'bundler/setup'
 require 'bundler/gem_tasks'
-require 'bump/tasks'
 
 require 'rake/testtask'
 Rake::TestTask.new do |test|
@@ -10,24 +9,22 @@ end
 
 task :default => :test
 
-# Because Bump ignores gemfiles
-module BumpAllGemfiles
-  def commit(version, file, options)
-    return unless File.directory?(".git")
-    system("rake bundle_all") if options[:bundle]
-    system("git add --update gemfiles") if options[:bundle]
-    super
-  end
+desc "Bundle, tag, and commit after you update the version"
+task :version => [:bundle_all] do
+  version_name = "v#{Memflash::VERSION}"
+  sh "git add --update && git commit -m '#{version_name}'"
+  sh "git tag -a -m 'Bump to #{version_name}' #{version_name}"
+  puts "-"*80
+  puts "Remember to 'git push --tags'"
+  puts "-"*80
 end
-Bump::Bump.singleton_class.prepend(BumpAllGemfiles)
 
 desc "Bundle all gemfiles"
-task :bundle_all do
+task :bundle_all, [:bundler_args] do |task, args|
   Bundler.with_original_env do
-    system("which -s matching_bundle") || abort("gem install matching_bundle")
     sh "BUNDLE_GEMFILE=Gemfile matching_bundle"
     Dir["gemfiles/*.gemfile"].each do |gemfile|
-      sh "BUNDLE_GEMFILE=#{gemfile} matching_bundle"
+      sh "BUNDLE_GEMFILE=#{gemfile} matching_bundle #{args[:bundler_args]}"
     end
   end
 end
@@ -36,7 +33,6 @@ namespace :test do
   desc "Run tests with all gemfiles"
   task :all do
     Bundler.with_original_env do
-      system("which -s matching_bundle") || abort("gem install matching_bundle")
       Dir["gemfiles/*.gemfile"].each do |gemfile|
         sh "BUNDLE_GEMFILE=#{gemfile} rake test"
       end
