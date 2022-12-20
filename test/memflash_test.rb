@@ -2,12 +2,7 @@ require_relative "test_helper"
 
 describe Memflash do
   before do
-    base = if ActionPack::VERSION::MAJOR >= 3
-      ActionDispatch::Flash::FlashHash
-    else
-      ActionController::Flash::FlashHash
-    end
-    @hash = base.new
+    @hash = ActionDispatch::Flash::FlashHash.new
   end
 
   describe "storing a value" do

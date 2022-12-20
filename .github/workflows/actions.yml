@@ -11,7 +11,6 @@ jobs:
     env:
       RAILS_ENV: test
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
-    continue-on-error: ${{ matrix.allow_failures }}
     strategy:
       fail-fast: false
       matrix:
@@ -22,10 +21,12 @@ jobs:
         gemfile:
           - gemfiles/rails4.2.gemfile
           - gemfiles/rails5.0.gemfile
-        allow_failures:
-          - false
+          - gemfiles/rails5.1.gemfile
+          - gemfiles/rails5.2.gemfile
+          - gemfiles/rails6.0.gemfile
+          - gemfiles/rails6.1.gemfile
     steps:
-    - uses: zendesk/checkout@v2
+    - uses: zendesk/checkout@v3
     - uses: zendesk/setup-ruby@v1
       with:
         bundler-cache: true
