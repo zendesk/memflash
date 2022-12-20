@@ -1,8 +1,11 @@
 name: test
 on:
+  # This being an open source project, we want pull requests from branches on a
+  # forked repo to run actions on *our* fork. So we run on pull request events,
+  # and on pushes to (our) master branch (i.e. merges).
   push:
     branches:
-      - '**' # run on push to any branch, but not pushes to tags
+      - master
   pull_request:
 jobs:
   main:
@@ -15,16 +18,16 @@ jobs:
       fail-fast: false
       matrix:
         rvm:
-          - 2.5
           - 2.6
           - 2.7
         gemfile:
-          - gemfiles/rails4.2.gemfile
-          - gemfiles/rails5.0.gemfile
           - gemfiles/rails5.1.gemfile
           - gemfiles/rails5.2.gemfile
           - gemfiles/rails6.0.gemfile
           - gemfiles/rails6.1.gemfile
+          - gemfiles/rails7.0.gemfile
+        exclude:
+          - {rvm: 2.6, gemfile: gemfiles/rails7.0.gemfile}
     steps:
     - uses: zendesk/checkout@v3
     - uses: zendesk/setup-ruby@v1
