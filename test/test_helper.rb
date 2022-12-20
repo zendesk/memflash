@@ -1,7 +1,7 @@
 require "bundler/setup"
 require "minitest/autorun"
 require "minitest/rg"
-require "mocha/setup"
+require "mocha/minitest"
 require "memflash"
 
 module Rails
