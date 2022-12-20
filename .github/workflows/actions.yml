@@ -1,8 +1,11 @@
 name: test
 on:
+  # This being an open source project, we want pull requests from branches on a
+  # forked repo to run actions on *our* fork. So we run on pull request events,
+  # and on pushes to (our) master branch (i.e. merges).
   push:
     branches:
-      - '**' # run on push to any branch, but not pushes to tags
+      - master
   pull_request:
 jobs:
   main:
