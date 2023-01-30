@@ -1,6 +1,9 @@
 require 'bundler/setup'
 require 'bundler/gem_tasks'
 
+# Pushing to rubygems is handled by a github workflow
+ENV['gem_push'] = 'false'
+
 require 'rake/testtask'
 Rake::TestTask.new do |test|
   test.pattern = 'test/**/*_test.rb'
