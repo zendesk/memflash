@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    memflash (2.3.0)
+    memflash (2.4.0)
       actionpack (>= 5.1, < 7.1)
 
 GEM
@@ -41,7 +41,7 @@ GEM
       minitest (~> 5.0)
     mocha (2.0.2)
       ruby2_keywords (>= 0.0.5)
-    nokogiri (1.13.10)
+    nokogiri (1.14.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     racc (1.6.1)
