@@ -8,7 +8,7 @@ on:
       - master
   pull_request:
 jobs:
-  main:
+  tests:
     name: test
     runs-on: ubuntu-latest
     env:
@@ -17,23 +17,36 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        rvm:
-          - 2.6
-          - 2.7
+        ruby-version:
+          - "2.7"
+          - "3.0"
+          - "3.1"
+          - "3.2"
         gemfile:
-          - gemfiles/rails5.1.gemfile
-          - gemfiles/rails5.2.gemfile
           - gemfiles/rails6.0.gemfile
           - gemfiles/rails6.1.gemfile
           - gemfiles/rails7.0.gemfile
-        exclude:
-          - {rvm: 2.6, gemfile: gemfiles/rails7.0.gemfile}
     steps:
     - uses: zendesk/checkout@v3
     - uses: zendesk/setup-ruby@v1
       with:
         bundler-cache: true
-        ruby-version: ${{ matrix.rvm }}
-    - name: test ${{ matrix.rvm }} with ${{ matrix.gemfile }}
+        ruby-version: ${{ matrix.ruby-version }}
+    - name: test ${{ matrix.ruby-version }} with ${{ matrix.gemfile }}
       run: |
         bundle exec rake test
+
+  tests_successful:
+    name: Tests passing?
+    needs: tests
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          if ${{ needs.tests.result == 'success' }}
+          then
+            echo "All tests passed"
+          else
+            echo "Some tests failed"
+            false
+          fi

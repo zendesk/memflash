@@ -32,7 +32,7 @@ module Memflash
     end
 
     def memflashed?(key, value)
-      !!(value =~ /^Memflash-#{key}/)
+      /^Memflash-#{key}/.match?(value.to_s)
     end
   end
 end
