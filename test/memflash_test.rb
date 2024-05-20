@@ -30,7 +30,7 @@ describe Memflash do
         end
 
         it "call memflash_key with the key" do
-          @hash.expects(:memflash_key).with(@key)
+          @hash.expects(:memflash_key).with(@key).returns("Memflash-#{@key}-#{Time.now.to_f}-#{Kernel.rand}")
 
           @hash[@key] = @value
         end
