@@ -1,9 +1,6 @@
 require 'bundler/setup'
 require 'bundler/gem_tasks'
 
-# Pushing to rubygems is handled by a github workflow
-ENV['gem_push'] = 'false'
-
 require 'rake/testtask'
 Rake::TestTask.new do |test|
   test.pattern = 'test/**/*_test.rb'
@@ -11,16 +8,6 @@ Rake::TestTask.new do |test|
 end
 
 task :default => :test
-
-desc "Bundle, tag, and commit after you update the version"
-task :version => [:bundle_all] do
-  version_name = "v#{Memflash::VERSION}"
-  sh "git add --update && git commit -m '#{version_name}'"
-  sh "git tag -a -m 'Bump to #{version_name}' #{version_name}"
-  puts "-"*80
-  puts "Remember to 'git push --tags'"
-  puts "-"*80
-end
 
 desc "Bundle all gemfiles"
 task :bundle_all, [:bundler_args] do |task, args|
