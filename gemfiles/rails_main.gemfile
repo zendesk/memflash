@@ -1,0 +1,7 @@
+source "https://rubygems.org"
+
+gem "actionpack", github: "rails/rails", branch: "main"
+
+gemspec path: ".."
+
+eval_gemfile "common.rb"

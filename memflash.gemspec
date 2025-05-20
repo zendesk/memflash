@@ -9,5 +9,5 @@ Gem::Specification.new "memflash", Memflash::VERSION do |s|
   s.license = "Apache License Version 2.0"
 
   s.required_ruby_version = '>= 3.3'
-  s.add_dependency "actionpack", ">= 7.0", "< 7.2"
+  s.add_dependency "actionpack", ">= 7.0"
 end

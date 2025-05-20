@@ -1,2 +1,4 @@
 test/rails/log/*.log
 pkg
+
+gemfiles/rails_main*.lock
