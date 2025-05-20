@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "logger"
 require "minitest/autorun"
 require "minitest/rg"
 require "mocha/minitest"

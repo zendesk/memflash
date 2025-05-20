@@ -8,12 +8,6 @@ Gem::Specification.new "memflash", Memflash::VERSION do |s|
   s.files = `git ls-files lib README.md LICENSE`.split("\n")
   s.license = "Apache License Version 2.0"
 
-  s.required_ruby_version = '>= 2.7'
-  s.add_dependency "actionpack", ">= 5.1", "< 7.2"
-
-  s.add_development_dependency('rake')
-  s.add_development_dependency('minitest')
-  s.add_development_dependency('minitest-rg')
-  s.add_development_dependency('matching_bundle')
-  s.add_development_dependency('mocha')
+  s.required_ruby_version = '>= 3.3'
+  s.add_dependency "actionpack", ">= 7.0"
 end

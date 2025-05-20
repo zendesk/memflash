@@ -1,0 +1,6 @@
+gem 'logger'
+gem 'rake'
+gem 'minitest'
+gem 'minitest-rg'
+gem 'matching_bundle'
+gem 'mocha'
